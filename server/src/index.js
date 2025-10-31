@@ -7,16 +7,19 @@ import bookingsRoutes from "./routes/bookings.js";
 import promoRoutes from "./routes/promo.js";
 
 dotenv.config();
-const app = express();
+
 app.use(cors({
   origin: [
-    'http://localhost:5173',                                       
-    'https://highway-delite-4ptj.onrender.com',                   
-    'https://highway-delite-amin.vercel.app',                     
-    'https://your-project.vercel.app'                             
+    'http://localhost:5173',                           
+    'http://localhost:5050',                           
+    'https://highway-delite-puce-ten.vercel.app',      
+    'https://highway-delite-4ptj.onrender.com'        
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json());
 
 app.use("/experiences", experiencesRoutes);
