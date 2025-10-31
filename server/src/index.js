@@ -8,7 +8,15 @@ import promoRoutes from "./routes/promo.js";
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',                                       
+    'https://highway-delite-4ptj.onrender.com',                   
+    'https://highway-delite-amin.vercel.app',                     
+    'https://your-project.vercel.app'                             
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use("/experiences", experiencesRoutes);
